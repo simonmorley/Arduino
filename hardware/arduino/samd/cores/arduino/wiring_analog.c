@@ -23,6 +23,28 @@
 extern "C" {
 #endif
 
+static int _readResolution = 10;
+static int _writeResolution = 10;
+static int ADC_RESOLUTION = 12;
+static int DAC_RESOLUTION = 10;
+
+void analogReadResolution(int res) {
+	_readResolution = res;
+}
+
+void analogWriteResolution(int res) {
+	_writeResolution = res;
+}
+
+static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to) {
+	if (from == to)
+		return value;
+	if (from > to)
+		return value >> (from-to);
+	else
+		return value << (to-from);
+}
+
 void analogReference( eAnalogReference ulMode )
 {
 
@@ -31,8 +53,9 @@ void analogReference( eAnalogReference ulMode )
   switch(ulMode)
   {
     case AR_DEFAULT:
+      //default:
+      ADC->REFCTRL.reg = ADC_REFCTRL_REFSEL_INTVCC1;
     case AR_INTERNAL:
-    default:
       ADC->REFCTRL.bit.REFSEL = ADC_REFCTRL_REFSEL_INT1V_Val;
       break;
 
@@ -41,11 +64,16 @@ void analogReference( eAnalogReference ulMode )
       break;
   }
 }
+
 uint32_t analogRead( uint32_t ulPin )
 {
   uint32_t valueRead = 0;
   pinPeripheral(ulPin, g_APinDescription[ulPin].ulPinType);
-
+  if ( ulPin == 24 )  // Only 1 DAC on A0 (PA02)
+  {
+    DAC->CTRLA.bit.ENABLE = 0; //disable DAC on A0
+  }
+  
   ADC->INPUTCTRL.bit.MUXPOS = g_APinDescription[ulPin].ulADCChannelNumber;
 
   // Start conversion
@@ -69,8 +97,10 @@ uint32_t analogRead( uint32_t ulPin )
   {
     // Waiting for synchronization
   }
-
+  
+  valueRead = mapResolution(valueRead, ADC_RESOLUTION, _readResolution);
   return valueRead;
+  
 }
 
 
@@ -93,7 +123,8 @@ void analogWrite( uint32_t ulPin, uint32_t ulValue )
     {
       return;
     }
-
+	
+	ulValue = mapResolution(ulValue, _writeResolution, DAC_RESOLUTION);
     DAC->DATA.reg = ulValue & 0x3FF;  // Dac on 10 bits.
 
    // EAnalogChannel channel = g_APinDescription[ulPin].ulADCChannelNumber;
@@ -149,7 +180,7 @@ void analogWrite( uint32_t ulPin, uint32_t ulValue )
       pinPeripheral( ulPin, g_APinDescription[ulPin].ulPinType ) ;
     }
 
-    Channelx = GetTCChannelNumber( g_APinDescription[ulPin].ulPWMChannel ) ;
+    /*Channelx = GetTCChannelNumber( g_APinDescription[ulPin].ulPWMChannel ) ;
     if ( GetTCChannelNumber( g_APinDescription[ulPin].ulPWMChannel ) >= TCC_INST_NUM )
     {
       isTC = 1 ;
@@ -159,9 +190,9 @@ void analogWrite( uint32_t ulPin, uint32_t ulValue )
     {
       isTC = 0 ;
       TCCx = (Tcc*) GetTC( g_APinDescription[ulPin].ulPWMChannel ) ;
-    }
+    }*/
 
-/*
+
     switch ( g_APinDescription[ulPin].ulPWMChannel )
     {
       case PWM3_CH0 :
@@ -230,7 +261,7 @@ void analogWrite( uint32_t ulPin, uint32_t ulValue )
       Channelx = 1;
       break;
     }
-*/
+
 
     // Enable clocks according to TCCx instance to use
     switch ( GetTCNumber( g_APinDescription[ulPin].ulPWMChannel ) )
