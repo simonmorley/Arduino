@@ -19,7 +19,7 @@ arduino_zero_pro_dbg.build.openocdscript=openocd_scripts/arduino_zero.cfg
 arduino_zero_pro_dbg.build.variant=arduino_zero
 arduino_zero_pro_dbg.build.variant_system_lib=
 arduino_zero_pro_dbg.build.vid=0x2a03
-arduino_zero_pro_dbg.build.pid=0x004d
+arduino_zero_pro_dbg.build.pid=0x804d
 arduino_zero_pro_dbg.build.section.start=0x0000
 
 arduino_zero_pro_dbg.bootloader.tool=openocd
@@ -53,7 +53,7 @@ arduino_zero_pro_dbg.bootloader.file=zero/bootloader_stk500v2_beta.hex.hex
 #arduino_zero_pro.build.variant=arduino_zero
 #arduino_zero_pro.build.variant_system_lib=
 #arduino_zero_pro.build.vid=0x2a03
-#arduino_zero_pro.build.pid=0x004d
+#arduino_zero_pro.build.pid=0x804d
 #arduino_zero_pro.build.section.start=0x0000
 #arduino_zero_pro.build.emu.mcu=atmega2560
 
@@ -104,7 +104,7 @@ arduino_zero_pro_bl_dbg.build.openocdscript=openocd_scripts/arduino_zero.cfg
 arduino_zero_pro_bl_dbg.build.variant=arduino_zero
 arduino_zero_pro_bl_dbg.build.variant_system_lib=
 arduino_zero_pro_bl_dbg.build.vid=0x2a03
-arduino_zero_pro_bl_dbg.build.pid=0x004d
+arduino_zero_pro_bl_dbg.build.pid=0x804d
 arduino_zero_pro_bl_dbg.build.section.start=0x4000
 
 #ARDUINO ZERO PRO BOOTLOADER - NATIVE PORT
