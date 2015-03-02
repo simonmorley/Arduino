@@ -30,29 +30,27 @@
 
 //==================================================================
 
-//#define USB_PID_LEONARDO   0x0034
-//#define USB_PID_MICRO      0x0035
-//#define USB_PID_DUE        0x003E
+
 
 /*
 #if (defined CDC_ENABLED) && defined(HID_ENABLED)
 //#define USB_PID_ZERO       0x004B  // CDC and HID
-#define USB_PID_ZERO       0x003B  // CDC only
+#define USB_PID_ZERO       0x804d  // CDC only
 #else
 #if (defined CDC_ENABLED)
-#define USB_PID_ZERO       0x003B  // CDC only  usbserial.name
+#define USB_PID_ZERO       0x804d  // CDC only  usbserial.name
 #else
-#define USB_PID_ZERO       0x0045  // HID only
+#define USB_PID_ZERO       0x804d  // HID only
 #endif
 #endif
 */
 
-#define USB_PID_ZERO       0x004d
+#define USB_PID_ZERO_PRO	0x804d
 
 // USB Device
-#define USB_VID            0x2a03 // arduino LLC vid
-#undef USB_PID
-#define USB_PID            USB_PID_ZERO
+//#define USB_VID 			0x2a03 // arduino srl vid
+//#undef USB_PID
+//#define USB_PID            USB_PID_ZERO
 
 //==================================================================
 
@@ -67,23 +65,27 @@ const uint16_t STRING_LANGUAGE[2] = {
 
 #ifndef USB_PRODUCT
 // Use a hardcoded product name if none is provided
-#if USB_PID == USB_PID_ZERO
-	#define USB_PRODUCT "Arduino Zero"
+#if USB_PID == USB_PID_ZERO_PRO
+	#define USB_PRODUCT "Arduino Zero Pro"
 #else
 	#define USB_PRODUCT "USB IO Board"
 #endif
 #endif
 
-const uint8_t STRING_PRODUCT[13] = USB_PRODUCT;
+const uint8_t STRING_PRODUCT[] = USB_PRODUCT;
 
 #if USB_VID == 0x2a03
-	#define USB_MANUFACTURER "Arduino Srl"
+#  if defined(USB_MANUFACTURER)
+#    undef USB_MANUFACTURER
+#  endif
+#  define USB_MANUFACTURER "Arduino Srl"
 #elif !defined(USB_MANUFACTURER)
-	// Fall through to unknown if no manufacturer name was provided in a macro
-	#define USB_MANUFACTURER "Unknown"
+// Fall through to unknown if no manufacturer name was provided in a macro
+#  define USB_MANUFACTURER "Unknown"
 #endif
 
 const uint8_t STRING_MANUFACTURER[12] = USB_MANUFACTURER;
+
 
 
 //	DEVICE DESCRIPTOR
@@ -156,19 +158,12 @@ uint32_t USBD_Send(uint32_t ep, const void* d, uint32_t len)
 	UDD_Send(ep, data, len);
 
 	/* Clear the transfer complete flag  */
-
 	udd_clear_transf_cplt(ep);
-
 	/* Set the bank as ready */
-
 	udd_bk_rdy(ep);
 
-
-
 	/* Wait for transfer to complete */
-
 	while (! udd_is_transf_cplt(ep));  // need fire exit.
-
 	return r;
 }
 
@@ -428,22 +423,15 @@ void EndpointHandler(uint8_t bEndpoint)
 	if( bEndpoint == CDC_ENDPOINT_IN )
 	{
 		udd_ack_in_received(CDC_ENDPOINT_IN);
-
 		/* Clear the transfer complete flag  */
-
 		udd_clear_transf_cplt(CDC_ENDPOINT_IN);
-
 		
-
 	}
 	if( bEndpoint == CDC_ENDPOINT_ACM )
 	{
 		udd_ack_in_received(CDC_ENDPOINT_ACM);
-
 		/* Clear the transfer complete flag  */
-
 		udd_clear_transf_cplt(CDC_ENDPOINT_ACM);
-
 	}
 #endif
 
@@ -615,9 +603,7 @@ void USB_Handler(void)
 #ifdef CDC_ENABLED
 						// Enable interrupt for CDC reception from host (OUT packet)
 						udd_ept_enable_it_transf_cplt_in(CDC_ENDPOINT_ACM);
-
 						udd_ept_enable_it_transf_cplt_out(CDC_ENDPOINT_OUT);
-
 #endif
 						send_zlp();
 					}
