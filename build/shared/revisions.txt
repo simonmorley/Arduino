@@ -1,4 +1,18 @@
+ARDUINO 1.5.8.3 BETA - 2015.27.02
+
+[libraries]
+* Update DAC, ADC, PWM, Digital for SAMD
+
+[ide]
+* Add openocd and cmsis tool
+* Update windows driver with the Zero Pro 
+* Add Atmel Drivers
+
+[core]
+* gcc: introduce bin compiling for Zero Pro programming port
+
 ARDUINO 1.5.8.2 BETA - 2015.19.02
+
 [libraries]
 * NAxis Motion: updated library to revision v8 of the shield.
   check of the interrupt based on mcu family instead of board name.
