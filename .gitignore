@@ -23,6 +23,7 @@ build/windows/launcher/launch4j
 build/windows/WinAVR-*.zip
 build/macosx/arduino-*.zip
 build/macosx/dist/gcc-*.tar.gz
+build/macosx/dist/*.tar.bz2
 build/macosx/libastylej*
 build/macosx/appbundler*.jar
 build/linux/work/
