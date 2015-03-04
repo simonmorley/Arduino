@@ -301,6 +301,14 @@
     <copy file="macosx/libastylej/libastylej.jnilib" tofile="macosx/work/Arduino.app/Contents/Java/lib/libastylej.dylib" />
     <chmod perm="755" file="macosx/work/Arduino.app/Contents/Java/lib/libastylej.jnilib" />
     <chmod perm="755" file="macosx/work/Arduino.app/Contents/Java/lib/libastylej.dylib" />
+
+    <!-- Unzip OpenOCD tools -->
+    <antcall target="unzip-openocd">
+      <param name="dist_file" value="OpenOCD-0.9.0-dev-arduino-x86_64-apple-darwin13.4.0.tar.bz2" />
+      <param name="dist_url" value="http://download.arduino.org/OpenOCD-0.9.0-dev-arduino-x86_64-apple-darwin13.4.0.tar.bz2" />
+      <param name="dist_check_file" value="OpenOCD-0.9.0-dev-arduino" />
+    </antcall>
+
   </target>
 
   <target name="macosx-run" depends="macosx-build" description="Run Mac OS X version">
@@ -315,58 +323,6 @@
     </exec>
   </target>
 
-  <!-- - - - - - - - - - - - - - - - -->
-  <!-- Sign application for MacOSX.  -->
-  <!-- - - - - - - - - - - - - - - - -->
-  <target name="macosx-signed-dist" if="macosx" depends="macosx-singed-dist-check, dist"
-    description="Create a downloadable and signed .zip for the Mac OS X version">
-    <fail unless="version" message="Please set the property 'version' to correctly sign distribution file" />
-
-    <!-- Remove everything from working folder -->
-    <delete dir="macosx/work/Arduino.app" />
-
-    <!-- Unzip unsigned app into working dir -->
-    <exec executable="unzip" dir="macosx/work">
-      <arg line="../arduino-${version}.org-${platform}.zip" />
-    </exec>
-
-    <!-- Unlock keychain file -->
-    <exec executable="security" dir="macosx/work">
-      <arg line="unlock-keychain -p &quot;${macosx-sign-keychain-pass}&quot; &quot;${macosx-sign-keychain}&quot;" />
-    </exec>
-
-    <!-- Sign app -->
-    <exec executable="codesign" dir="macosx/work">
-      <arg line="--keychain &quot;${macosx-sign-keychain}&quot; --force -s &quot;${macosx-sign-id}&quot; -v Arduino.app/" />
-    </exec>
-
-    <!-- Check for successful signing -->
-    <exec executable="codesign" dir="macosx/work" failonerror="true">
-      <arg line="-vvvv Arduino.app/" />
-    </exec>
-
-    <delete file="macosx/arduino-${version}.org-${platform}.zip" />
-
-    <!-- Create signed zip file -->
-    <exec executable="zip" dir="macosx/work">
-      <arg line="-q -r ../arduino-${version}.org-${platform}-signed.zip ." />
-    </exec>
-
-    <echo>
-      =======================================================
-      Arduino for Mac OS X built and signed.
-
-      macosx/arduino-${version}.org-${platform}-signed.zip
-      =======================================================
-    </echo>
-  </target>
-
-  <target name="macosx-singed-dist-check">
-    <fail unless="macosx-sign-keychain" message="Please set the property 'macosx-sign-keychain' to the correct keychain file" />
-    <fail unless="macosx-sign-keychain-pass" message="Please set the property 'macosx-sign-keychain-pass' with the password to unlock the keychain" />
-    <fail unless="macosx-sign-id" message="Please set the property 'macosx-sign-id' to the correct cert identifier" />
-  </target>
-
   <!-- - - - - - - - - - - - - - - - - - - -->
   <!-- Build distribution file for MacOSX. -->
   <!-- - - - - - - - - - - - - - - - - - - -->
@@ -379,16 +335,6 @@
       <fileset dir="macosx/work/${staging_hardware_folder}/tools/avr/libexec/gcc/avr/4.8.1/" includes="*" />
     </chmod>
     
-    <!-- Sign app -->
-    <exec executable="codesign" dir="macosx/work">
-  	<arg line="--force -s &quot;Arduino srl&quot; -v Arduino.app/" />
-    </exec>
-
-    <!-- Check for successful signing -->
-    <exec executable="codesign" dir="macosx/work" failonerror="true">
-    	<arg line="-dvvv Arduino.app/" />
-    </exec>
-
     <exec executable="zip" dir="macosx/work">
       <arg line="-q -r ../arduino-${version}.org-${platform}-java7.zip ." />
     </exec>
@@ -536,6 +482,15 @@
     <antcall target="unzip-avr-toolchain">
       <param name="file_arch" value="linux32" />
     </antcall>
+
+    <!-- Unzip OpenOCD tools -->
+    <antcall target="unzip-openocd">
+      <param name="dist_file" value="OpenOCD-0.9.0-dev-arduino-i486-linux-gnu.tar.bz2" />
+      <param name="dist_url" value="http://download.arduino.org/OpenOCD-0.9.0-dev-arduino-i486-linux-gnu.tar.bz2" />
+      <param name="dist_check_file" value="OpenOCD-0.9.0-dev-arduino" />
+    </antcall>
+
+    <chmod perm="755" file="linux/work/hardware/tools/OpenOCD-0.9.0-dev-arduino/bin/openocd" />
   </target>
 
   <target name="linux64-build" depends="linux-build" description="Build linux (64-bit) version">
@@ -550,6 +505,14 @@
     <antcall target="unzip-avr-toolchain">
       <param name="file_arch" value="linux64" />
     </antcall>
+    <!-- Unzip OpenOCD tools -->
+    <antcall target="unzip-openocd">
+      <param name="dist_file" value="OpenOCD-0.9.0-dev-arduino-x86_64-linux-gnu.tar.bz2" />
+      <param name="dist_url" value="http://download.arduino.org/OpenOCD-0.9.0-dev-arduino-x86_64-linux-gnu.tar.bz2" />
+      <param name="dist_check_file" value="OpenOCD-0.9.0-dev-arduino" />
+    </antcall>
+    
+    <chmod perm="755" file="linux/work/hardware/tools/OpenOCD-0.9.0-dev-arduino/bin/openocd" />    
   </target>
 
   <target name="linux32-run" depends="linux32-build" description="Run Linux (32-bit) version">
@@ -779,6 +742,13 @@
       <param name="file_arch" value="win32" />
     </antcall>
 
+  <!-- Unzip OpenOCD tools -->
+    <antcall target="unzip-openocd">
+      <param name="dist_file" value="OpenOCD-0.9.0-dev-arduino-win32.tar.bz2" />
+      <param name="dist_url" value="http://download.arduino.org/OpenOCD-0.9.0-dev-arduino-win32.tar.bz2" />
+      <param name="dist_check_file" value="OpenOCD-0.9.0-dev-arduino" />
+    </antcall>
+
     <get src="http://download.arduino.org/libastylej-2.03.zip" dest="windows" usetimestamp="true" skipexisting="true" />
     <unzip src="windows/libastylej-2.03.zip" dest="windows" overwrite="true"/>
     <copy file="windows/libastylej/AStylej.dll" todir="windows/work/lib" />
@@ -909,4 +879,38 @@
 	  depends="linux-clean, windows-clean, macosx-clean, subprojects-clean">
   </target>
 
+  <!-- - - - - - - -->
+  <!-- OPEN OCD    -->
+  <!-- - - - - - - -->
+  <target name="check-openocd">
+    <available file="${staging_folder}/dist/${dist_file}" property="openocd_distfile_available" />
+    <available file="${staging_folder}/work/hardware/tools/${dist_check_file}" property="openocd_installed" />
+  </target>
+
+  <!-- Retrieve openOCD -->
+  <target name="get-openocd" depends="check-openocd" unless="openocd_distfile_available">
+    <get src="${dist_url}" dest="${staging_folder}/dist/${dist_file}" verbose="true" ignoreerrors="true" />
+  </target>
+
+  <target name="unzip-openocd" depends="get-openocd, check-openocd"
+      unless="openocd_toolchain_installed">
+    <checksum file="${staging_folder}/dist/${dist_file}" algorithm="sha"
+      fileext=".sha" verifyproperty="checksum.matches"/>
+    <condition property="checksum.matches.fail">
+      <equals arg1="${checksum.matches}" arg2="false"/>
+    </condition>
+    <fail if="checksum.matches.fail">Checksum failed.
+
+      File ${dist_file} failed checksum.
+      Please remove "${staging_folder}/dist/${dist_file}" to download it again.
+    </fail>
+
+    <!-- Unzip openocd to the destination folder -->
+    <exec executable="tar">
+      <arg value="xfz"/>
+      <arg value="${staging_folder}/dist/${dist_file}"/>
+      <arg value="--directory=${staging_folder}/work/${staging_hardware_folder}/tools/"/>
+    </exec>
+  </target>
+  
 </project>
