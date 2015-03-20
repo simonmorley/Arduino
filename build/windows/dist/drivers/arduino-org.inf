@@ -35,6 +35,9 @@ zero_pro.usbport.name="Arduino Zero PRO Native Port"
 zero_boot.usbport.name="Arduino Zero (Bootloader Mode) - Native Port"
 zero_pro_boot.usbport.name="Arduino Zero PRO (Bootloader Mode) Native Port"
 
+microADK.bootloader.name="Arduino Micro ADK bootloader"
+microADK.sketch.name="Arduino Micro ADK”
+
 [DefaultInstall]
 CopyINF=arduino-org.inf
 
@@ -45,7 +48,7 @@ Signature="$Windows NT$"
 Provider=%ManufacturerName%
 DriverPackageDisplayName=%DriverPackageDisplayName%
 CatalogFile=arduino-org.cat
-DriverVer=02/27/2014,1.1.0.0
+DriverVer=03/19/2015,1.1.1.0
 
 [Manufacturer]
 %ManufacturerName%=DeviceList, NTamd64, NTia64
@@ -66,7 +69,7 @@ DefaultDestDir=12
 %lilypadUSB.sketch.name%=DriverInstall, USB\VID_1B4F&PID_9208&MI_00
 %mega2560rev3.name%=DriverInstall, USB\VID_2A03&PID_0042
 %mega2560.name%=DriverInstall, USB\VID_2A03&PID_0010
-%megaADK.name%=DriverInstall, USB\VID_2A03&PID_003F
+%megaADK.name%=DriverInstall, USB\VID_2A03&PID_002F
 %megaADKrev3.name%=DriverInstall, USB\VID_2A03&PID_0044
 %micro.bootloader.name%=DriverInstall, USB\VID_2A03&PID_0037
 %micro.sketch.name%=DriverInstall, USB\VID_2A03&PID_8037&MI_00
@@ -84,6 +87,9 @@ DefaultDestDir=12
 %zero_pro.usbport.name%=DriverInstall, USB\VID_2A03&PID_804D
 %zero_boot.usbport.name%=DriverInstall, USB\VID_2A03&PID_004E
 %zero_pro_boot.usbport.name%=DriverInstall, USB\VID_2A03&PID_004D
+
+%microADK.bootloader.name%=DriverInstall, USB\VID_2A03&PID_003A
+%microADK.sketch.name%=DriverInstall, USB\VID_2A03&PID_803A&MI_00
 
 [DeviceList.NTamd64]
 %due.bossa.name%=DriverInstall, USB\VID_03EB&PID_6124
@@ -97,7 +103,7 @@ DefaultDestDir=12
 %lilypadUSB.sketch.name%=DriverInstall, USB\VID_1B4F&PID_9208&MI_00
 %mega2560rev3.name%=DriverInstall, USB\VID_2A03&PID_0042
 %mega2560.name%=DriverInstall, USB\VID_2A03&PID_0010
-%megaADK.name%=DriverInstall, USB\VID_2A03&PID_003F
+%megaADK.name%=DriverInstall, USB\VID_2A03&PID_002F
 %megaADKrev3.name%=DriverInstall, USB\VID_2A03&PID_0044
 %micro.bootloader.name%=DriverInstall, USB\VID_2A03&PID_0037
 %micro.sketch.name%=DriverInstall, USB\VID_2A03&PID_8037&MI_00
@@ -115,6 +121,9 @@ DefaultDestDir=12
 %zero_boot.usbport.name%=DriverInstall, USB\VID_2A03&PID_004E
 %zero_pro.usbport.name%=DriverInstall, USB\VID_2A03&PID_804D
 %zero.usbport.name%=DriverInstall, USB\VID_2A03&PID_804E
+
+%microADK.bootloader.name%=DriverInstall, USB\VID_2A03&PID_003A
+%microADK.sketch.name%=DriverInstall, USB\VID_2A03&PID_803A&MI_00
 
 [DeviceList.NTia64]
 %esplora.bootloader.name%=DriverInstall, USB\VID_2A03&PID_003C
@@ -125,7 +134,7 @@ DefaultDestDir=12
 %lilypadUSB.sketch.name%=DriverInstall, USB\VID_1B4F&PID_9208&MI_00
 %mega2560rev3.name%=DriverInstall, USB\VID_2A03&PID_0042
 %mega2560.name%=DriverInstall, USB\VID_2A03&PID_0010
-%megaADK.name%=DriverInstall, USB\VID_2A03&PID_003F
+%megaADK.name%=DriverInstall, USB\VID_2A03&PID_002F
 %megaADKrev3.name%=DriverInstall, USB\VID_2A03&PID_0044
 %micro.bootloader.name%=DriverInstall, USB\VID_2A03&PID_0037
 %micro.sketch.name%=DriverInstall, USB\VID_2A03&PID_8037&MI_00
@@ -143,6 +152,9 @@ DefaultDestDir=12
 %zero_boot.usbport.name%=DriverInstall, USB\VID_2A03&PID_004E
 %zero_pro.usbport.name%=DriverInstall, USB\VID_2A03&PID_804D
 %zero.usbport.name%=DriverInstall, USB\VID_2A03&PID_804E
+
+%microADK.bootloader.name%=DriverInstall, USB\VID_2A03&PID_003A
+%microADK.sketch.name%=DriverInstall, USB\VID_2A03&PID_803A&MI_00
 
 [DriverInstall]
 include=mdmcpq.inf,usb.inf
