@@ -631,6 +631,10 @@ msgstr "显示行数"
 msgid "Don't Save"
 msgstr "请勿保存"
 
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:69
+msgid "Don't show me again"
+msgstr ""
+
 #: Editor.java:2275 Editor.java:2311
 msgid "Done Saving."
 msgstr "保存完成。"
@@ -1061,10 +1065,6 @@ msgstr "烧录器不支持通过网络上传"
 #: EditorToolbar.java:41 Editor.java:493
 msgid "New"
 msgstr "新建"
-
-#: EditorToolbar.java:46
-msgid "New Editor Window"
-msgstr "新编辑器窗口"
 
 #: EditorHeader.java:292
 msgid "New Tab"
@@ -1534,10 +1534,6 @@ msgstr "项目文件夹位置"
 msgid "Sketchbook path not defined"
 msgstr "没有定义项目文件夹"
 
-#: ../../../processing/app/Base.java:785
-msgid "Sketches (*.ino, *.pde)"
-msgstr "项目 (*.ino, *.pde)"
-
 #: ../../../../../app/src/processing/app/Preferences.java:185
 msgid "Slovak"
 msgstr ""
@@ -1689,6 +1685,10 @@ msgid ""
 "to the third-party hardware maintainer."
 msgstr "第三方platform.txt文件为定义compiler.path。请向第三方硬件维护者反映此问题。"
 
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:66
+msgid "This board comes from an uncertified manufacturer."
+msgstr ""
+
 #: Sketch.java:1075
 msgid ""
 "This file has already been copied to the\n"
@@ -1749,6 +1749,14 @@ msgstr "无法打开串口监视器"
 #, java-format
 msgid "Uncaught exception type: {0}"
 msgstr "未捕获的异常类型：{0}"
+
+#: ../../..//cc/arduino/packages/discoverers/SerialDiscovery.java:51
+msgid "Uncertified"
+msgstr ""
+
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:61
+msgid "Uncertified board"
+msgstr ""
 
 #: Editor.java:1133 Editor.java:1355
 msgid "Undo"
@@ -1831,9 +1839,9 @@ msgstr "上传后验证代码"
 msgid "Vietnamese"
 msgstr "越南语"
 
-#: Editor.java:1105
-msgid "Visit Arduino.cc"
-msgstr "访问Arduino.cc"
+#: ../../../../../app/src/processing/app/Editor.java:1148
+msgid "Visit Arduino.org"
+msgstr ""
 
 #: ../../../processing/app/debug/Compiler.java:115
 #, java-format
@@ -1845,6 +1853,10 @@ msgstr ""
 #: Base.java:2128
 msgid "Warning"
 msgstr "警告"
+
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:66
+msgid "We won't be able to provide any support if it doesn't work as expected."
+msgstr ""
 
 #: ../../../../../app/src/processing/app/Preferences.java:190
 msgid "Western Frisian"
@@ -2006,17 +2018,17 @@ msgstr "createNewFile()返回false"
 msgid "enabled in File > Preferences."
 msgstr "在 文件>首选项 中启用"
 
-#: Editor.java:1108
-msgid "http://arduino.cc/"
-msgstr "http://arduino.cc/"
+#: ../../../../../app/src/processing/app/Editor.java:1151
+msgid "http://arduino.org/"
+msgstr ""
 
-#: UpdateCheck.java:118
-msgid "http://www.arduino.cc/en/Main/Software"
-msgstr "http://www.arduino.cc/en/Main/Software"
+#: ../../../../../app/src/processing/app/UpdateCheck.java:118
+msgid "http://arduino.org/downloads"
+msgstr ""
 
-#: UpdateCheck.java:53
-msgid "http://www.arduino.cc/latest.txt"
-msgstr "http://www.arduino.cc/latest.txt"
+#: ../../../../../app/src/processing/app/UpdateCheck.java:53
+msgid "http://download.arduino.org/latest.txt"
+msgstr ""
 
 #: Preferences.java:625
 #, java-format

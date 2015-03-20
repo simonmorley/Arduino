@@ -632,6 +632,10 @@ msgstr "行番号の"
 msgid "Don't Save"
 msgstr "保存しない"
 
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:69
+msgid "Don't show me again"
+msgstr ""
+
 #: Editor.java:2275 Editor.java:2311
 msgid "Done Saving."
 msgstr "保存しました。"
@@ -1062,10 +1066,6 @@ msgstr ""
 #: EditorToolbar.java:41 Editor.java:493
 msgid "New"
 msgstr "新規ファイル"
-
-#: EditorToolbar.java:46
-msgid "New Editor Window"
-msgstr "新規ウィンドウ"
 
 #: EditorHeader.java:292
 msgid "New Tab"
@@ -1535,10 +1535,6 @@ msgstr "スケッチブックの保存場所："
 msgid "Sketchbook path not defined"
 msgstr ""
 
-#: ../../../processing/app/Base.java:785
-msgid "Sketches (*.ino, *.pde)"
-msgstr "スケッチ (*.ino, *pde)"
-
 #: ../../../../../app/src/processing/app/Preferences.java:185
 msgid "Slovak"
 msgstr ""
@@ -1690,6 +1686,10 @@ msgid ""
 "to the third-party hardware maintainer."
 msgstr ""
 
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:66
+msgid "This board comes from an uncertified manufacturer."
+msgstr ""
+
 #: Sketch.java:1075
 msgid ""
 "This file has already been copied to the\n"
@@ -1750,6 +1750,14 @@ msgstr "シリアルモニタを開けません"
 #, java-format
 msgid "Uncaught exception type: {0}"
 msgstr "想定外の例外「{0}」が発生しました。"
+
+#: ../../..//cc/arduino/packages/discoverers/SerialDiscovery.java:51
+msgid "Uncertified"
+msgstr ""
+
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:61
+msgid "Uncertified board"
+msgstr ""
 
 #: Editor.java:1133 Editor.java:1355
 msgid "Undo"
@@ -1832,9 +1840,9 @@ msgstr "書き込みを検証する"
 msgid "Vietnamese"
 msgstr ""
 
-#: Editor.java:1105
-msgid "Visit Arduino.cc"
-msgstr "Arduino.ccウェブサイトを開く"
+#: ../../../../../app/src/processing/app/Editor.java:1148
+msgid "Visit Arduino.org"
+msgstr ""
 
 #: ../../../processing/app/debug/Compiler.java:115
 #, java-format
@@ -1846,6 +1854,10 @@ msgstr ""
 #: Base.java:2128
 msgid "Warning"
 msgstr "警告"
+
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:66
+msgid "We won't be able to provide any support if it doesn't work as expected."
+msgstr ""
 
 #: ../../../../../app/src/processing/app/Preferences.java:190
 msgid "Western Frisian"
@@ -2007,17 +2019,17 @@ msgstr "createNewFile()がfalseを返しました。"
 msgid "enabled in File > Preferences."
 msgstr "ファイル > 設定 で有効にする"
 
-#: Editor.java:1108
-msgid "http://arduino.cc/"
-msgstr "http://arduino.cc/"
+#: ../../../../../app/src/processing/app/Editor.java:1151
+msgid "http://arduino.org/"
+msgstr ""
 
-#: UpdateCheck.java:118
-msgid "http://www.arduino.cc/en/Main/Software"
-msgstr "http://www.arduino.cc/en/Main/Software"
+#: ../../../../../app/src/processing/app/UpdateCheck.java:118
+msgid "http://arduino.org/downloads"
+msgstr ""
 
-#: UpdateCheck.java:53
-msgid "http://www.arduino.cc/latest.txt"
-msgstr "http://www.arduino.cc/latest.txt"
+#: ../../../../../app/src/processing/app/UpdateCheck.java:53
+msgid "http://download.arduino.org/latest.txt"
+msgstr ""
 
 #: Preferences.java:625
 #, java-format

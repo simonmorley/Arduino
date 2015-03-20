@@ -631,6 +631,10 @@ msgstr ""
 msgid "Don't Save"
 msgstr ""
 
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:69
+msgid "Don't show me again"
+msgstr ""
+
 #: Editor.java:2275 Editor.java:2311
 msgid "Done Saving."
 msgstr ""
@@ -1061,10 +1065,6 @@ msgstr ""
 #: EditorToolbar.java:41 Editor.java:493
 msgid "New"
 msgstr "नवीन"
-
-#: EditorToolbar.java:46
-msgid "New Editor Window"
-msgstr ""
 
 #: EditorHeader.java:292
 msgid "New Tab"
@@ -1534,10 +1534,6 @@ msgstr ""
 msgid "Sketchbook path not defined"
 msgstr ""
 
-#: ../../../processing/app/Base.java:785
-msgid "Sketches (*.ino, *.pde)"
-msgstr ""
-
 #: ../../../../../app/src/processing/app/Preferences.java:185
 msgid "Slovak"
 msgstr ""
@@ -1689,6 +1685,10 @@ msgid ""
 "to the third-party hardware maintainer."
 msgstr ""
 
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:66
+msgid "This board comes from an uncertified manufacturer."
+msgstr ""
+
 #: Sketch.java:1075
 msgid ""
 "This file has already been copied to the\n"
@@ -1748,6 +1748,14 @@ msgstr ""
 #: Sketch.java:1432
 #, java-format
 msgid "Uncaught exception type: {0}"
+msgstr ""
+
+#: ../../..//cc/arduino/packages/discoverers/SerialDiscovery.java:51
+msgid "Uncertified"
+msgstr ""
+
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:61
+msgid "Uncertified board"
 msgstr ""
 
 #: Editor.java:1133 Editor.java:1355
@@ -1831,9 +1839,9 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
-#: Editor.java:1105
-msgid "Visit Arduino.cc"
-msgstr "arduino.cc ला भेट द्या"
+#: ../../../../../app/src/processing/app/Editor.java:1148
+msgid "Visit Arduino.org"
+msgstr ""
 
 #: ../../../processing/app/debug/Compiler.java:115
 #, java-format
@@ -1844,6 +1852,10 @@ msgstr ""
 
 #: Base.java:2128
 msgid "Warning"
+msgstr ""
+
+#: ../../../../../app/src/cc/arduino/view/UncertifiedBoardWarning.java:66
+msgid "We won't be able to provide any support if it doesn't work as expected."
 msgstr ""
 
 #: ../../../../../app/src/processing/app/Preferences.java:190
@@ -2006,16 +2018,16 @@ msgstr ""
 msgid "enabled in File > Preferences."
 msgstr ""
 
-#: Editor.java:1108
-msgid "http://arduino.cc/"
+#: ../../../../../app/src/processing/app/Editor.java:1151
+msgid "http://arduino.org/"
 msgstr ""
 
-#: UpdateCheck.java:118
-msgid "http://www.arduino.cc/en/Main/Software"
+#: ../../../../../app/src/processing/app/UpdateCheck.java:118
+msgid "http://arduino.org/downloads"
 msgstr ""
 
-#: UpdateCheck.java:53
-msgid "http://www.arduino.cc/latest.txt"
+#: ../../../../../app/src/processing/app/UpdateCheck.java:53
+msgid "http://download.arduino.org/latest.txt"
 msgstr ""
 
 #: Preferences.java:625
