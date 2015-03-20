@@ -21,12 +21,14 @@ build/windows/libastylej*
 build/windows/arduino-*.zip
 build/windows/dist/*.tar.gz
 build/windows/dist/*.tar.bz2
+build/windows/dist/*.zip
 build/windows/launch4j-*
 build/windows/launcher/launch4j
 build/windows/WinAVR-*.zip
 build/macosx/arduino-*.zip
 build/macosx/dist/*.tar.gz
 build/macosx/dist/*.tar.bz2
+build/macosx/dist/*.zip
 build/macosx/libastylej*
 build/macosx/appbundler*.jar
 build/macosx/appbundler*.zip
@@ -35,6 +37,7 @@ build/macosx/appbundler-1.0ea-arduino2
 build/linux/work/
 build/linux/dist/*.tar.gz
 build/linux/dist/*.tar.bz2
+build/linux/dist/*.zip
 build/linux/*.tgz
 build/linux/*.zip
 build/linux/libastylej*
