@@ -1152,7 +1152,7 @@ public class Sketch {
    * @return null if compilation failed, main class name if not
    */
   public String build(String buildPath, boolean verbose) throws RunnerException, PreferencesMapException {
-    useOriginalVidPidIfUncertified();
+    //useOriginalVidPidIfUncertified();
 
     // run the preprocessor
     editor.status.progressUpdate(20);
