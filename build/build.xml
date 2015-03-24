@@ -618,7 +618,7 @@
     <!-- Unzip CMSIS -->
     <antcall target="unzip">
       <param name="archive_file" value="${staging_folder}/CMSIS.zip" />
-      <param name="archive_url" value="http://download.arduino.org/CMSIS.zip" />
+      <param name="archive_url" value="http://download.arduino.org/tools/CMSIS.zip" />
       <param name="final_folder" value="${staging_folder}/work/${staging_hardware_folder}/tools/CMSIS" />
       <param name="dest_folder" value="${staging_folder}/work/${staging_hardware_folder}/tools/CMSIS" />
     </antcall>
@@ -873,7 +873,7 @@
     <!-- Unzip CMSIS -->
     <antcall target="unzip">
       <param name="archive_file" value="${staging_folder}/CMSIS.zip" />
-      <param name="archive_url" value="http://download.arduino.org/CMSIS.zip" />
+      <param name="archive_url" value="http://download.arduino.org/tools/CMSIS.zip" />
       <param name="final_folder" value="${staging_folder}/work/${staging_hardware_folder}/tools/CMSIS" />
       <param name="dest_folder" value="${staging_folder}/work/${staging_hardware_folder}/tools/CMSIS" />
     </antcall>
