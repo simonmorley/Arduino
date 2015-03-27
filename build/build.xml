@@ -717,7 +717,7 @@
   <target name="untar" depends="untar-unzip-checksum" unless="${archive_file}_installed">
     <echo>Unzipping into folder ${dest_folder}</echo>
     <exec executable="tar">
-      <arg value="xvf"/>
+      <arg value="xf"/>
       <arg value="${archive_file}"/>
       <arg value="--directory=${dest_folder}"/>
     </exec>
